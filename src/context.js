@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import axios from "axios"
 
 const Context = React.createContext()
+const ts = Date.now()
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -16,6 +17,8 @@ const reducer = (state, action) => {
 	}
 }
 
+
+
 export class Provider extends Component {
 	state = {
 		article_list: [],
@@ -25,7 +28,7 @@ export class Provider extends Component {
 	componentDidMount() {
 		axios
 			.get(
-				`https://cors-anywhere.herokuapp.com/https://www.ft.com/paidpost/article-hub/articles.json`
+				`https://cors-anywhere.herokuapp.com/https://www.ft.com/paidpost/article-hub/articles.json?v=${ts}`
 			)
 			.then(res => {
 				this.setState({
