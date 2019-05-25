@@ -1,0 +1,11 @@
+@import "includes/mq";
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  @include mq($m) {
+    flex-direction: row;
+  }
+}
