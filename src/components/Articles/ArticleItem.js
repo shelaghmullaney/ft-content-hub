@@ -14,16 +14,15 @@ class ArticleItem extends Component {
 
         }
 
-        function ItemOnClick(a, b) {
-            console.log(a)
-            console.log(b)
+        function ItemOnClick(url) {
+            window.open(url);
         }
         return(
             <div className='article-item' style={{backgroundImage: `url(${image})`}} onClick={ItemOnClick.bind(this, url)}>
                 <h2>{clientname}</h2>
                 <h1>{title}</h1>
                 <p>{product}</p>
-                <p>{platformLogic(platform)}</p>
+                <p onClick={console.log('ooouchie')}>{platformLogic(platform)}</p>
                 <p>{url}</p>
             </div>
         )
