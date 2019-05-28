@@ -1,0 +1,21 @@
+@import "includes/mq";
+
+header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  max-height: 50px;
+  padding-top: 13px;
+  padding-left: 50px;
+  z-index: 2;
+
+  img {
+    height: 64px;
+    width: 46px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
