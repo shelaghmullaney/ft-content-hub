@@ -10,6 +10,7 @@ class ArticleItem extends Component {
 
             return plat === '1' ? x = 'FT.com' : x = 'How To Spend It'
         }
+
         function sectorLogic(sect) {
 
         }
@@ -22,7 +23,7 @@ class ArticleItem extends Component {
                 <h2>{clientname}</h2>
                 <h1>{title}</h1>
                 <p>{product}</p>
-                <p onClick={console.log('ooouchie')}>{platformLogic(platform)}</p>
+                <p>{platformLogic(platform)}</p>
                 <p>{url}</p>
             </div>
         )
