@@ -62,3 +62,7 @@ $breakpoints: (
   padding-left: 16px;
   padding-right: 16px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
