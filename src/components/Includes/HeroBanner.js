@@ -18,7 +18,7 @@ const HeroBanner = (props) => {
                 <div className="hero-banner__content">
                     <h1>{props.title}</h1>
                     <h2>{props.subHeading}</h2>
-                    <Arrow ref='heroArrow' onClick={clickMe} className='hero-banner__arrow'/>
+                    <Arrow onClick={clickMe} className='hero-banner__arrow'/>
                 </div>
             </div>
         </div>
