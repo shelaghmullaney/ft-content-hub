@@ -1,28 +1,61 @@
-import React from 'react'
+import React, {Component} from 'react'
+import _ from 'lodash'
+import {Consumer} from "../../context";
 import {ReactComponent as Arrow} from '../../img/down-chevron.svg'
+import {ReactComponent as Loader} from '../../img/loader.svg'
 import '../../sass/_heroBaner.scss'
+import Header from "./Header";
+
 
 const videoLink = 'https://www.ft.com/paidpost/article-hub/ft-content-video.mp4'
 
-function clickMe() {
-    alert()
-}
+class HeroBanner extends Component {
+    constructor(props) {
+        super(props)
+    }
 
-const HeroBanner = (props) => {
-    return (
-        <div className='hero-banner'>
-            <video className='hero-banner__video' playsInline autoPlay muted loop>
-                <source src={videoLink} type="video/mp4"/>
-            </video>
-            <div className="wrap">
-                <div className="hero-banner__content">
-                    <h1>{props.title}</h1>
-                    <h2>{props.subHeading}</h2>
-                    <Arrow onClick={clickMe} className='hero-banner__arrow'/>
+    handleClick(e) {
+        const articleContainer = document.getElementById('articleContainer')
+        console.log(articleContainer)
+        articleContainer.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+    }
+
+    render() {
+        const LoadArrow = ({loading}) => {
+
+            return (
+                <div className='hero-banner-loading'>
+                    <Loader className={loading ? 'hero-banner__loader' : 'hero-banner__loader -hide'}/>
+                    <Arrow id='arrow' onClick={this.handleClick.bind(this)}
+                           className={loading ? 'hero-banner__arrow' : 'hero-banner__arrow -show'}/>
                 </div>
-            </div>
-        </div>
-    )
+            )
+        }
+        return (
+            <Consumer>
+                {value => {
+                    return (
+                        <React.Fragment>
+                            <Header hasScrolled={value.hasScrolled}/>
+                            <div className='hero-banner' id='heroBanner'>
+                                <video className='hero-banner__video' playsInline autoPlay muted loop>
+                                    <source src={videoLink} type="video/mp4"/>
+                                </video>
+                                <div className="wrap">
+                                    <div className="hero-banner__content">
+                                        <h1>{this.props.title}</h1>
+                                        <h2>{this.props.subHeading}</h2>
+                                        <LoadArrow loading={value.loading}/>
+                                    </div>
+                                </div>
+                            </div>
+                        </React.Fragment>
+                    )
+                }}
+            </Consumer>
+
+        )
+    }
 }
 
 export default HeroBanner
