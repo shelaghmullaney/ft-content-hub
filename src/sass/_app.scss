@@ -1,6 +1,8 @@
 @import "includes/mq";
 
 .article-wrapper {
-  transition: background-color 0.5s ease-in;
-  padding: 50px 0;
+  background-color: white;
+  padding: 250px 0;
+  position: relative;
+  min-height: 100vh;
 }
