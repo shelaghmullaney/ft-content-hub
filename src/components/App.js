@@ -1,11 +1,9 @@
 import React, {Component} from "react"
 import {Consumer} from "../context"
-import _ from "lodash"
 
 import Footer from "./Includes/Footer"
 import HeroBanner from "./Includes/HeroBanner"
 import ArticleContainer from "./Articles/ArticleContainer"
-import FilterContainer from './Filter/FilterContainer'
 
 import "../sass/_app.scss"
 
@@ -18,6 +16,17 @@ function Search(term) {
 function SectorSearch(term) {
     return function (x) {
         return x.sector.toLowerCase().includes(term.toLowerCase()) || !term
+    }
+}
+
+function PlatformSearch(term) {
+    return function (x) {
+        return x.platform.toLowerCase().includes(term.toLowerCase()) || !term
+    }
+}
+function ProductSearch(term) {
+    return function (x) {
+        return x.product.toLowerCase().includes(term.toLowerCase()) || !term
     }
 }
 
@@ -44,8 +53,9 @@ class App extends Component {
                                     <ArticleContainer
                                         search={Search(value.searchVal)}
                                         sectorSearch={SectorSearch(value.sector)}
+                                        platformSearch={PlatformSearch(value.platform)}
+                                        productSearch={ProductSearch(value.product)}
                                     />
-                                    <FilterContainer/>
                                 </div>
                             </div>
                         )

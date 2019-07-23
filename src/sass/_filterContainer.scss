@@ -2,15 +2,18 @@
 
 .filter-container {
   background: #262a33;
-  position: fixed;
-  top: 100px;
   right: 0;
   padding: 35px 35px;
   z-index: 101;
   opacity: 0;
+  max-width: 300px;
+  margin-left: auto;
+  margin-top: 0;
+  transition: opacity 0.8s ease-in;
 
-  &.-show {
+  .-show & {
     opacity: 1;
+    transition: opacity 0.8s ease-in;
   }
 
   .filter-title {
@@ -18,19 +21,28 @@
     font-size: 20px;
     font-family: MetricWeb, sans-serif;
     color: #fcd0b1;
-    padding: 15px 0;
+    padding: 20px 0;
     width: 100%;
     border-bottom: 2px solid #fcd0b1;
     margin-bottom: 30px;
-
-    &.filter-client__title  {
-      margin-bottom: 0;
-      border: 0;
-    }
   }
 
 }
+.filter-wrap-container {
+  width: 100%;
+  max-width: 1580px;
+  position: fixed;
+  z-index: 99999;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  top: 60px;
+  display: none;
 
+  &.-show {
+    display: block;
+  }
+}
 .filter-wrapper {
   display: flex;
   flex-direction: column;
@@ -91,17 +103,34 @@
   }
 }
 
+.filter-platform, .filter-products, .filter-sector {
+  label {
+    color: white;
+    margin-left: 20px;
+    font-family: MetricWeb, sans-serif;
+  }
+}
+
+.filter-platform__input {
+  margin-bottom: 10px;
+}
+
+.filter-sector__input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .filter-client__dropdown {
   width: 100%;
-  padding: 5px 35px 5px 5px;
+  padding:0 5px;
   font-size: 12px;
   border: 1px solid white;
   text-transform: uppercase;
   border-radius: 0;
   height: 34px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
-  background: url(https://www.ft.com/paidpost/article-hub/filterArrow.png) 96%/6% no-repeat white;
   cursor: pointer;
+  max-width: 290px;
 }

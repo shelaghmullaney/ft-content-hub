@@ -25,20 +25,26 @@ export class Provider extends Component {
         articleList: [],
         clientList: [],
         searchVal: '',
+        sector: '',
+        platform: '',
+        product: '',
         isFilterOpen: false,
         isFormOpen: false,
         hasScrolled: false,
         loading: true,
-        sector: '',
 
         dispatch: action => this.setState(state => reducer(state, action)),
         handleFilterOpen: this.handleFilterOpen.bind(this),
+        handleFormOpen: this.handleFormOpen.bind(this),
         handleFilterClose: this.handleFilterClose.bind(this),
         clearSearchValue: this.clearSearchValue.bind(this),
-        handleSectorChange: e => this.handleSectorChange(e),
         clearSectorChange: this.clearSectorChange.bind(this),
+        handleSectorChange: e => this.handleSectorChange(e),
+        handlePlatformChange: e => this.handlePlatformChange(e),
+        handleProductChange: e => this.handleProductChange(e),
         handleClientChange: e => this.handleClientChange(e),
         handleArticleTagFilter: e => this.handleArticleTagFilter(e),
+        handleHeaderClientFilter: e => this.handleHeaderClientFilter(e)
     }
 
     componentDidMount() {
@@ -59,6 +65,10 @@ export class Provider extends Component {
             .catch(err => console.log(err))
 
         const heroBannerHeight = (document.getElementById("heroBanner")).clientHeight
+        const body = document.body
+        let timer = null
+
+        window.scroll(0, 0);
 
         window.addEventListener('scroll', _.throttle(() => {
             const scrollTop = window.pageYOffset
@@ -71,7 +81,16 @@ export class Provider extends Component {
                     isFilterOpen: false,
                 })
             }
-        }, 550))
+
+            clearTimeout(timer);
+            if (!body.classList.contains('disable-hover')) {
+                body.classList.add('disable-hover')
+            }
+
+            timer = setTimeout(function () {
+                body.classList.remove('disable-hover')
+            }, 200);
+        }, 250), true)
 
     }
 
@@ -83,7 +102,14 @@ export class Provider extends Component {
 
     handleFilterOpen() {
         this.setState(prevState => ({
-            isFilterOpen: !prevState.isFilterOpen
+            isFilterOpen: !prevState.isFilterOpen,
+            isFormOpen: false
+        }))
+    }
+    handleFormOpen() {
+        this.setState(prevState => ({
+            isFormOpen: !prevState.isFormOpen,
+            isFilterOpen: false
         }))
     }
 
@@ -102,9 +128,10 @@ export class Provider extends Component {
     clearSearchValue() {
         this.setState({
             searchVal: '',
-            sector: ''
+            sector: '',
+            platform: '',
+            product: ''
         })
-        console.log('cleared')
     }
 
     handleSectorChange(e) {
@@ -112,6 +139,18 @@ export class Provider extends Component {
             sector: e.target.value
         })
     }
+    handleProductChange(e) {
+        this.setState({
+            product: e.target.value
+        })
+    }
+
+    handlePlatformChange(e) {
+        this.setState({
+            platform: e.target.value
+        })
+    }
+
 
     clearSectorChange() {
         this.setState({
@@ -124,6 +163,14 @@ export class Provider extends Component {
             sector: e.target.dataset.value
         })
     }
+
+    handleHeaderClientFilter(e) {
+        this.setState({
+            searchVal: e.target.dataset.search,
+            sector: ''
+        })
+    }
+
 
 
     render() {

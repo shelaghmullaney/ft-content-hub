@@ -1,23 +1,20 @@
 import React, {Component} from 'react'
-import _ from 'lodash'
 import {Consumer} from "../../context";
 import {ReactComponent as Arrow} from '../../img/down-chevron.svg'
 import {ReactComponent as Loader} from '../../img/loader.svg'
 import '../../sass/_heroBaner.scss'
 import Header from "./Header";
+import FilterContainer from "../Filter/FilterContainer";
+import ContactContainer from '../Contact/ContactContainer'
 
 
-const videoLink = 'https://www.ft.com/paidpost/article-hub/ft-content-video.mp4'
+const videoLink = 'https://www.ft.com/paidpost/article-hub/ft-content-video-01.mp4'
 
 class HeroBanner extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     handleClick(e) {
         const articleContainer = document.getElementById('articleContainer')
         console.log(articleContainer)
-        articleContainer.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        articleContainer.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }
 
     render() {
@@ -37,6 +34,8 @@ class HeroBanner extends Component {
                     return (
                         <React.Fragment>
                             <Header hasScrolled={value.hasScrolled}/>
+                            <FilterContainer/>
+                            <ContactContainer/>
                             <div className='hero-banner' id='heroBanner'>
                                 <video className='hero-banner__video' playsInline autoPlay muted loop>
                                     <source src={videoLink} type="video/mp4"/>
