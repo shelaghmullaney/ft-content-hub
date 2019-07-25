@@ -24,7 +24,7 @@
 }
 
 .contact-contact-underlay {
-  width: 100%;
+  width: 100vw;
   position: absolute;
   left: 0;
   right: 0;
@@ -36,29 +36,6 @@
 
   .-show & {
     display: block;
-
-    &:before {
-      content: '';
-      display: block;
-      width: 20%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      position: absolute;
-      right: -20%;
-      top: 0;
-    }
-
-    &:after {
-      content: '';
-      display: block;
-      width: 20%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      position: absolute;
-      left: -20%;
-      top: 0;
-
-    }
   }
 }
 
