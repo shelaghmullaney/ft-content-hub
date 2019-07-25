@@ -5,8 +5,9 @@ header {
   width: 100%;
   left: 0;
   z-index: 100;
-  padding: 5px 0;
   background-color: transparent;
+  max-height: 35px;
+  height: 35px;
 
   &.-scrolling {
     background-color: white;
@@ -14,6 +15,10 @@ header {
     box-shadow: 4px 2px 5px 0px rgba(0, 0, 0, 0.15);
     transition: background-color 0.5s cubic-bezier(0.2, 0.8, 0.2, 0.8);
   }
+}
+
+.header-logo {
+  cursor: pointer;
 }
 
 .header-logo__img {
@@ -30,10 +35,10 @@ header {
 }
 
 .header-logo__img-word {
-  height: 46px;
-  width: 46px;
+  height: 30px;
+  width: 30px;
   opacity: 1;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 
@@ -41,17 +46,38 @@ header {
   padding-right: 30px;
   cursor: pointer;
 
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: transparent;
+    width: 60px;
+    height: 36px;
+    z-index: 0;
+    top: 0;
+  }
+
+  &:hover {
+    &:before {
+      background: rgba(103, 103, 103, 0.5);
+    }
+
+    path, circle, g, rect, svg {
+      stroke: white;
+      fill: white;
+    }
+  }
+
   &.open {
     background-color: #262a33;
-    transition: background-color 0.5s ease-in;
 
     &:before {
       content: '';
       display: block;
       position: absolute;
       background: #262a33;
-      width: 65px;
-      height: 65px;
+      width: 60px;
+      height: 46px;
       z-index: 0;
       top: 0;
     }
@@ -64,11 +90,10 @@ header {
 
   svg {
     position: absolute;
-    max-width: 30px;
+    max-width: 26px;
     top: 50%;
     transform: translate(50%, -50%);
     padding-left: 2px;
-    padding-top: 2px;
 
     path, circle, g, rect, svg {
       stroke: black;
@@ -148,10 +173,32 @@ header {
   height: 31px;
   position: relative;
   cursor: pointer;
+
+  &:hover {
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      background: rgba(103, 103, 103, 0.5);
+      width: 60px;
+      height: 41px;
+      z-index: 0;
+      top: -10px;
+      left: -10px;
+    }
+
+    path, circle, g, rect, svg {
+      stroke: white;
+    }
+  }
+
   svg {
     position: absolute;
-    max-width: 35px;
+    max-width: 30px;
+    right: 50%;
+    transform: translate(35%);
   }
+
   &.open {
     background-color: #262a33;
     transition: background-color 0.5s ease-in;
@@ -161,11 +208,11 @@ header {
       display: block;
       position: absolute;
       background: #262a33;
-      width: 65px;
-      height: 65px;
+      width: 60px;
+      height: 46px;
       z-index: 0;
-      top: -19px;
-      left: -14px;
+      top: -10px;
+      left: -10px;
     }
 
     path, circle, g, rect, svg {

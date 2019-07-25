@@ -78,12 +78,12 @@ class Header extends Component {
                                     </div>
                                 </div>
                                 <div className={this.props.hasScrolled ? 'header-btn -show' : 'header-btn'}>
-                                    <div className={value.isFormOpen ? 'header-btn__contact open' : 'header-btn__contact'}>
-                                        <Contact onClick={value.handleFormOpen.bind(this)} />
+                                    <div className={value.isFormOpen ? 'header-btn__contact open' : 'header-btn__contact'} onClick={value.handleFormOpen.bind(this)} >
+                                        <Contact />
                                     </div>
                                     <div
-                                        className={value.isFilterOpen ? 'header-burger-wrapper open' : 'header-burger-wrapper'}>
-                                        <Filter onClick={value.handleFilterOpen.bind(this)} />
+                                        className={value.isFilterOpen ? 'header-burger-wrapper open' : 'header-burger-wrapper'} onClick={value.handleFilterOpen.bind(this)} >
+                                        <Filter />
                                     </div>
                                 </div>
                             </div>

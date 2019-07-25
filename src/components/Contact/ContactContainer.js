@@ -49,6 +49,7 @@ class ContactContainer extends Component {
 
                                 </div>
                             </div>
+                            <div className="contact-contact-underlay" onClick={value.handleFormClose}></div>
                         </div>
                     )
                 }}

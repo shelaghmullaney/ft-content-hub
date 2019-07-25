@@ -74,9 +74,8 @@ class ArticleItem extends Component {
         }
 
         return (
-            <div
-                className='article-item'
-                style={{backgroundImage: `url(${image})`}}>
+            <div className='article-item'>
+                <img src={image} alt=""/>
                 <div className='article-item__content'>
                     <div className='article-item__client-name'> {clientname} </div>
                     <div className='article-item__title' onClick={NavigateURL.bind(this, url)}>

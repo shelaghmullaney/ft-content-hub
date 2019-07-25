@@ -14,7 +14,7 @@ class HeroBanner extends Component {
     handleClick(e) {
         const articleContainer = document.getElementById('articleContainer')
         console.log(articleContainer)
-        articleContainer.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        articleContainer.scrollIntoView({behavior: "smooth", block: "nearest", inline: 'start'});
     }
 
     render() {

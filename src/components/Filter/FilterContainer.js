@@ -23,7 +23,7 @@ class FilterContainer extends Component {
                                     <ClearBtn value={value}/>
                                     <div className="filter-main-title">
                                     <span>
-                                        Filters
+                                        Filter
                                     </span>
                                     </div>
                                     <div className="filter-wrapper">
@@ -144,6 +144,9 @@ class FilterContainer extends Component {
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="filter-container-underlay"  onClick={value.handleFilterClose}>
+
                                 </div>
                             </div>
                         )

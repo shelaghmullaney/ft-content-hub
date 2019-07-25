@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import axios from "axios"
-import _ from "lodash";
+import _ from "lodash" 
 
 const Context = React.createContext()
 const ts = Date.now()
@@ -36,6 +36,7 @@ export class Provider extends Component {
         dispatch: action => this.setState(state => reducer(state, action)),
         handleFilterOpen: this.handleFilterOpen.bind(this),
         handleFormOpen: this.handleFormOpen.bind(this),
+        handleFormClose : this.handleFormClose.bind(this),
         handleFilterClose: this.handleFilterClose.bind(this),
         clearSearchValue: this.clearSearchValue.bind(this),
         clearSectorChange: this.clearSectorChange.bind(this),
@@ -45,6 +46,7 @@ export class Provider extends Component {
         handleClientChange: e => this.handleClientChange(e),
         handleArticleTagFilter: e => this.handleArticleTagFilter(e),
         handleHeaderClientFilter: e => this.handleHeaderClientFilter(e)
+
     }
 
     componentDidMount() {
@@ -65,10 +67,16 @@ export class Provider extends Component {
             .catch(err => console.log(err))
 
         const heroBannerHeight = (document.getElementById("heroBanner")).clientHeight
+        const headerLogo = document.querySelector('.header-logo')
+
+        headerLogo.addEventListener('click', (e)=> {
+            window.scrollTo({ top: 0, behavior: 'smooth' }) 
+        })
+
         const body = document.body
         let timer = null
 
-        window.scroll(0, 0);
+        window.scroll(0, 0) 
 
         window.addEventListener('scroll', _.throttle(() => {
             const scrollTop = window.pageYOffset
@@ -82,14 +90,14 @@ export class Provider extends Component {
                 })
             }
 
-            clearTimeout(timer);
+            clearTimeout(timer) 
             if (!body.classList.contains('disable-hover')) {
                 body.classList.add('disable-hover')
             }
 
             timer = setTimeout(function () {
                 body.classList.remove('disable-hover')
-            }, 200);
+            }, 200) 
         }, 250), true)
 
     }
@@ -117,6 +125,12 @@ export class Provider extends Component {
         this.setState(prevState => ({
             isFormOpen: !prevState.isFormOpen
         }))
+    }
+
+    handleFormClose() {
+        this.setState({
+            isFormOpen: false
+        })
     }
 
     handleFilterClose() {

@@ -4,12 +4,13 @@
   width: 100%;
   max-width: 1580px;
   position: fixed;
-  z-index: 99999;
+  z-index: 100;
   margin: 0 auto;
   right: 0;
   left: 0;
-  top: 60px;
+  top: 35px;
   display: none;
+  height: 100%;
 
   &.-show {
     display: block;
@@ -18,7 +19,46 @@
 
 .contact-form {
   .filter-main-title {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+  }
+}
+
+.contact-contact-underlay {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+
+  .-show & {
+    display: block;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 20%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      right: -20%;
+      top: 0;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 20%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: -20%;
+      top: 0;
+
+    }
   }
 }
 
@@ -30,7 +70,7 @@
   opacity: 0;
   max-width: 300px;
   margin-left: auto;
-  margin-top: 0;
+  position: relative;
 
   .-show & {
     opacity: 1;
@@ -67,11 +107,13 @@
 
 .form-input-area {
   margin-bottom: 25px;
+
   textarea {
     width: 100%;
     padding-left: 15px;
     padding-top: 15px;
     max-width: 283px;
+
     &::placeholder {
       font-family: MetricWeb, sans-serif;
       font-size: 15px;
@@ -85,6 +127,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   button {
     max-width: 200px;
     padding: 15px 50px;
@@ -105,6 +148,7 @@
     margin-top: 2px;
     margin-right: 5px;
   }
+
   p {
 
   }

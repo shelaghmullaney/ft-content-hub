@@ -9,11 +9,12 @@
   max-width: 300px;
   margin-left: auto;
   margin-top: 0;
+  position: relative;
   transition: opacity 0.8s ease-in;
 
   .-show & {
     opacity: 1;
-    transition: opacity 0.8s ease-in;
+    transition: opacity 1s ease-in;
   }
 
   .filter-title {
@@ -30,19 +31,59 @@
 }
 .filter-wrap-container {
   width: 100%;
-  max-width: 1580px;
+  max-width: 1570px;
   position: fixed;
-  z-index: 99999;
+  z-index: 99;
   margin: 0 auto;
   right: 0;
   left: 0;
-  top: 60px;
+  top: 35px;
   display: none;
+  height: 100%;
 
   &.-show {
     display: block;
+
   }
 }
+
+.filter-container-underlay {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 50;
+  .-show &{
+    display: block;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 20%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      position: absolute;
+      right: -20%;
+      top: 0;
+    }
+    &:after {
+      content: '';
+      display: block;
+      width: 20%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      position: absolute;
+      left: -20%;
+      top: 0;
+
+    }
+  }
+}
+
 .filter-wrapper {
   display: flex;
   flex-direction: column;
@@ -50,7 +91,7 @@
 
 .filter-main-title {
   color: white;
-  font-size: 35px;
+  font-size: 25px;
   text-transform: uppercase;
   font-family: MetricWeb, sans-serif;
   margin-bottom: 15px;
