@@ -52,7 +52,7 @@ export class Provider extends Component {
     componentDidMount() {
         axios
             .get(
-                `https://cors-anywhere.herokuapp.com/https://www.ft.com/paidpost/article-hub/articles.json?v=${ts}`
+                `https://react-cors.herokuapp.com/https://www.ft.com/paidpost/article-hub/articles.json?v=${ts}`
             )
             .then(res => {
 
