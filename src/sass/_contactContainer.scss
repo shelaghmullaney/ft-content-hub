@@ -1,14 +1,15 @@
 @import "includes/mq";
+$white: #ffffff;
 
 .contact-wrap-container {
   width: 100%;
-  max-width: 1580px;
+  max-width: 1571px;
   position: fixed;
   z-index: 100;
   margin: 0 auto;
   right: 0;
   left: 0;
-  top: 35px;
+  top: 55px;
   display: none;
   height: 100%;
 
@@ -24,11 +25,11 @@
 }
 
 .contact-contact-underlay {
-  width: 110vw;
+  width: 200vw;
   position: absolute;
   right: 0;
   top: 0;
-  left: -35%;
+  left: -50vw;
   height: 100%;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);

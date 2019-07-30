@@ -157,6 +157,12 @@
   font-weight: 100;
   font-size: 22px;
   margin-bottom: 30px;
+  transition: color 0.5s ease-in;
+
+  &:hover {
+    color: #999999;
+    transition: color 0.5s ease-in;
+  }
 }
 
 @keyframes FadeIn {

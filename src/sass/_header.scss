@@ -12,6 +12,7 @@ header {
   &.-scrolling {
     background-color: white;
     opacity: 1;
+    padding: 10px 0;
     box-shadow: 4px 2px 5px 0px rgba(0, 0, 0, 0.15);
     transition: background-color 0.5s cubic-bezier(0.2, 0.8, 0.2, 0.8);
   }
@@ -52,7 +53,7 @@ header {
     position: absolute;
     background: transparent;
     width: 60px;
-    height: 36px;
+    height: 56px;
     z-index: 0;
     top: 0;
   }
@@ -70,6 +71,7 @@ header {
 
   &.open {
     background-color: #262a33;
+    position: relative;
 
     &:before {
       content: '';
@@ -77,9 +79,24 @@ header {
       position: absolute;
       background: #262a33;
       width: 60px;
-      height: 46px;
-      z-index: 0;
-      top: 0;
+      height: 55px;
+      z-index: 2;
+      top: -31px;
+    }
+
+    &:after {
+      content: 'X';
+      display: block;
+      top: -2px;
+      right: 0;
+      transform: translate(50%, -50%);
+      position: absolute;
+      z-index: 9;
+      color: white;
+      font-size: 30px;
+      font-family: Arial;
+      opacity: 0;
+      animation: FadeIn 1s forwards;
     }
 
     path, circle, g, rect, svg {
@@ -181,9 +198,9 @@ header {
       position: absolute;
       background: rgba(103, 103, 103, 0.5);
       width: 60px;
-      height: 41px;
+      height: 55px;
       z-index: 0;
-      top: -10px;
+      top: -15px;
       left: -10px;
     }
 
@@ -202,6 +219,7 @@ header {
   &.open {
     background-color: #262a33;
     transition: background-color 0.5s ease-in;
+    position: relative;
 
     &:before {
       content: '';
@@ -209,10 +227,24 @@ header {
       position: absolute;
       background: #262a33;
       width: 60px;
-      height: 46px;
-      z-index: 0;
-      top: -10px;
+      height: 55px;
+      z-index: 2;
+      top: -15px;
       left: -10px;
+    }
+
+    &:after {
+      content: 'X';
+      display: block;
+      top: 13px;
+      transform: translate(50%, -50%);
+      position: absolute;
+      z-index: 9;
+      color: white;
+      font-size: 30px;
+      font-family: Arial;
+      opacity: 0;
+      animation: FadeIn 1s forwards;
     }
 
     path, circle, g, rect, svg {
@@ -310,4 +342,9 @@ body {
   font-family: MetricWeb, sans-serif;
   text-decoration: underline;
   cursor: pointer;
+}
+
+@keyframes FadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
