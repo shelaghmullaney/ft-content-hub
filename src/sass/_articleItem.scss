@@ -18,6 +18,7 @@
   overflow: hidden;
   padding-top: 0;
   margin-bottom: 20px !important;
+  scroll-snap-align: start;
 
   &:hover {
     img {
