@@ -6,11 +6,13 @@ import '../../sass/_heroBaner.scss'
 import Header from "./Header";
 import FilterContainer from "../Filter/FilterContainer";
 import ContactContainer from '../Contact/ContactContainer'
+import {} from '../Functions/ScrollPosition'
 
-
-const videoLink = 'https://www.ft.com/paidpost/article-hub/ft-content-video-01.mp4'
+const videoLink = 'https://www.ft.com/paidpost/article-hub/herovideo.mp4'
 
 class HeroBanner extends Component {
+
+
     handleClick(e) {
         const articleContainer = document.getElementById('articleContainer')
         console.log(articleContainer)

@@ -50,6 +50,7 @@ export class Provider extends Component {
     }
 
     componentDidMount() {
+        console.log('hype')
         axios
             .get(
                 `https://react-cors.herokuapp.com/https://www.ft.com/paidpost/article-hub/articles.json?v=${ts}`
@@ -72,34 +73,6 @@ export class Provider extends Component {
         headerLogo.addEventListener('click', (e)=> {
             window.scrollTo({ top: 0, behavior: 'smooth' }) 
         })
-
-        const body = document.body
-        let timer = null
-
-        window.scroll(0, 0) 
-
-        window.addEventListener('scroll', _.throttle(() => {
-            const scrollTop = window.pageYOffset
-
-            if (scrollTop > (heroBannerHeight - 64)) {
-                this.setState({hasScrolled: true})
-            } else {
-                this.setState({
-                    hasScrolled: false,
-                    isFilterOpen: false,
-                })
-            }
-
-            clearTimeout(timer) 
-            if (!body.classList.contains('disable-hover')) {
-                body.classList.add('disable-hover')
-            }
-
-            timer = setTimeout(function () {
-                body.classList.remove('disable-hover')
-            }, 200) 
-        }, 250), true)
-
     }
 
     handleClientChange(e) {
