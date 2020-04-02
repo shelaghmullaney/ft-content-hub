@@ -37,6 +37,7 @@ class FilterContainer extends Component {
                                                    id=""
                                                    onChange={value.handleClientChange.bind(this)}
                                                    value={value.searchVal}
+                                                   placeholder={'Search for a client'}
                                             />
                                             <datalist id='clients'>
                                                 {value.clientList.sort().map((client, i) => <option key={i}
@@ -66,7 +67,7 @@ class FilterContainer extends Component {
                                                     onChange={value.handleProductChange}
                                                     checked={value.product === '1'}
                                                 />
-                                                <label htmlFor="banking">HTSI</label>
+                                                <label htmlFor="banking">How To Spend It</label>
                                             </div>
                                         </div>
                                         <div className="filter-platform">
@@ -82,27 +83,7 @@ class FilterContainer extends Component {
                                                     onChange={value.handlePlatformChange}
                                                     checked={value.platform === '1'}
                                                 />
-                                                <label htmlFor="banking">Brand Story</label>
-                                            </div>
-                                            <div className="filter-platform__input">
-                                                <input
-                                                    type="radio"
-                                                    name='platform'
-                                                    value='2'
-                                                    onChange={value.handlePlatformChange}
-                                                    checked={value.platform === '2'}
-                                                />
-                                                <label htmlFor="platform">Brand Suite</label>
-                                            </div>
-                                            <div className="filter-platform__input">
-                                                <input
-                                                    type="radio"
-                                                    name='platform'
-                                                    value='3'
-                                                    onChange={value.handlePlatformChange}
-                                                    checked={value.platform === '3'}
-                                                />
-                                                <label htmlFor="platform">Brand Feature</label>
+                                                <label htmlFor="banking">Paid Post</label>
                                             </div>
                                         </div>
                                         <div className="filter-sector">

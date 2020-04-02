@@ -9,9 +9,12 @@ class ArticleItem extends Component {
         const SectorContainer = ({tag}) => {
             let sectionArr = sector.split(',')
             return sectionArr.map((sec, i) => {
-                const regCase = sec.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); })
+                const regCase = sec.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
+                    return str.toUpperCase();
+                })
                 return (
-                    <div className='article-item__tag-item' key={i} data-value={sec} onClick={tag.bind(this)}>{regCase}</div>
+                    <div className='article-item__tag-item' key={i} data-value={sec}
+                         onClick={tag.bind(this)}>{regCase}</div>
                 )
             })
         }
@@ -36,7 +39,7 @@ class ArticleItem extends Component {
             let platformProd = ''
             switch (value) {
                 case '1': {
-                    platformProd = 'Brand Story'
+                    platformProd = 'Paid Post'
                     break
                 }
                 case '2': {
@@ -73,11 +76,19 @@ class ArticleItem extends Component {
             return productProd
         }
 
+        const ClientName = ({search}) => {
+            console.log(search)
+
+            return <div onClick={e => search(e)}>{clientname}</div>
+        }
+
         return (
             <div className='article-item'>
                 <img src={image} alt=""/>
                 <div className='article-item__content'>
-                    <div className='article-item__client-name'> {clientname} </div>
+                    <div className='article-item__client-name'>
+                        <ClientName search={this.props.searchFilter}/>
+                    </div>
                     <div className='article-item__title' onClick={NavigateURL.bind(this, url)}>
                         <Truncate input={title}/>
                     </div>

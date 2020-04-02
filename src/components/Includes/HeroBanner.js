@@ -8,7 +8,7 @@ import FilterContainer from "../Filter/FilterContainer";
 import ContactContainer from '../Contact/ContactContainer'
 
 
-const videoLink = 'https://www.ft.com/paidpost/article-hub/ft-content-video-01.mp4'
+const videoLink = 'https://www.ft.com/paidpost/article-hub/ContentHub.mp4'
 
 class HeroBanner extends Component {
     handleClick(e) {

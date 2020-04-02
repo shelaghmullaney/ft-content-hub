@@ -103,6 +103,7 @@ export class Provider extends Component {
     }
 
     handleClientChange(e) {
+        console.log(e)
         this.setState({
             searchVal: e.target.value
         })

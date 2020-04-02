@@ -9,11 +9,11 @@ class ArticleContainer extends Component {
 
 
 
-        const ArticleItemWrapper = ({articleList, searchFilter, sectorFilter, articleTagFilter, platformFilter, productFilter}) => {
+        const ArticleItemWrapper = ({articleList, searchFilter, sectorFilter, articleTagFilter, platformFilter, productFilter, handleClientChange}) => {
             return (
                 articleList.filter(searchFilter).filter(sectorFilter).filter(platformFilter).filter(productFilter).map((article, i) => {
                     return (
-                        <ArticleItem tagFilter={articleTagFilter} key={i} item={article}/>
+                        <ArticleItem searchFilter={handleClientChange} tagFilter={articleTagFilter} key={i} item={article}/>
                     )
                 })
             )
@@ -23,7 +23,7 @@ class ArticleContainer extends Component {
         return (
             <Consumer>
                 {value => {
-                    const {articleList, handleArticleTagFilter} = value
+                    const {articleList, handleArticleTagFilter, handleClientChange} = value
                     const {search, sectorSearch, platformSearch, productSearch} = this.props
                     return (
                         <div className="wrap">
@@ -34,6 +34,7 @@ class ArticleContainer extends Component {
                                                     platformFilter={platformSearch}
                                                     articleTagFilter={handleArticleTagFilter}
                                                     productFilter={productSearch}
+                                                    handleClientChange={handleClientChange}
                                 />
                             </div>
                         </div>
