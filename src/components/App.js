@@ -45,7 +45,7 @@ class App extends Component {
                         return (
                             <div>
                                 <HeroBanner
-                                    title="Welcome to the Financial Times' branded content hub"
+                                    title="Welcome to Financial Times' branded content hub"
                                     subHeading="Scroll down to see all of the client-voiced content marketing projects published by the FT.
                                 If you'd like any more information on any one project, you can get in touch with us here"
                                 />
